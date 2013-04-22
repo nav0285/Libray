@@ -1,0 +1,29 @@
+<h2> Add New Book </h2>
+<%= form_for(@book) do |f| %>
+ <% if @book.errors.any? %>
+      <ul>
+      <% @book.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+  <% end %>
+
+
+<table>
+
+<tr><td><b><%= f.label 'Title' %></b></td>
+    <td><%= f.text_field :title %></td></tr>
+
+<tr><td><b><%= f.label 'Description' %></b></td>
+    <td><%= f.text_area :description %></td></tr>
+
+<tr><td><b><%= f.label 'Subject' %></b></td>
+    <td><%= f.collection_select(:subject_id,@subjects,:id,:name) %></td></tr>
+
+<tr><td><%= f.submit 'Save' %></td></tr>
+
+</table>
+
+<% end %>
+
+<%= link_to 'Back', root_url %>

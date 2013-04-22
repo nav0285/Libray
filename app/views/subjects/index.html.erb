@@ -1,0 +1,12 @@
+<% if @subjects.blank? %>
+  <p> No Books in the library </p>
+<% else %>
+  <% @subjects.each do |subject| %>
+<ul><li><p>
+   <%= link_to subject.name, books_path(:id=>subject.id) %>
+   <%= link_to 'Edit', { :action=>'edit', :id=>subject.id } %>
+   <%= link_to 'Delete', subject, method: :delete, confirm: 'Are you sure?' %></p></li></ul>
+  <% end %>
+<% end %>
+<%= link_to 'New Subject', new_subject_path %><br/>
+<%= link_to 'New Book', new_book_path %>

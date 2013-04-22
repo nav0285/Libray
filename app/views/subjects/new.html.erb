@@ -1,0 +1,14 @@
+<h2> Add New Subject </h2>
+<%= form_for(@subject) do |f| %>
+ <% if @subject.errors.any? %>
+  <ul>
+     <% @subject.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+     <% end %>
+  </ul>
+ <% end %>
+<p><%= f.label 'Subject Name' %>
+<%= f.text_field :name %></p>
+<%= f.submit 'Save' %>
+<% end %>
+<%= link_to 'Back', root_url %>
