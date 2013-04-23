@@ -8,7 +8,7 @@ before_filter :self_load, :only=>[:edit,:show,:update,:destroy]
 
   def new 
     @book=Book.new
-    @subjects=Subject.find(:all)
+    @subjects=Subject.all
   end
 
   def create 

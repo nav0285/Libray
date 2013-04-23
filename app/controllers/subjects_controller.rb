@@ -3,8 +3,8 @@ class SubjectsController < ApplicationController
   before_filter :self_load, :only=>[:edit,:show,:update,:destroy]
 
   def index
-    @subjects=Subject.find(:all)
-    @books=Book.find(:all)
+    @subjects=Subject.all
+    @books=Book.all
   end
 
   def new 
