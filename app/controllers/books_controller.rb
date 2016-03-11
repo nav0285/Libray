@@ -14,7 +14,7 @@ before_filter :self_load, :only=>[:edit,:show,:update,:destroy]
   def create 
     @book=Book.new(params[:book])
        if @book.save
-        redirect_to root_url, :notice=>'New Book has been added'
+        redirect_to root_url, :notice=>'New Book has been saved'
        else 
         render :action=>'new'
        end
